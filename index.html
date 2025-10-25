@@ -1,0 +1,236 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <title>Personal Portfolio</title>
+    <link rel="stylesheet" href="style.css">
+    <!-- Google tag (gtag.js) -->
+    <script async src="https://www.googletagmanager.com/gtag/js?id=G-XLGNTBL3LX"></script>
+    <script>
+    window.dataLayer = window.dataLayer || [];
+    function gtag(){dataLayer.push(arguments);}
+    gtag('js', new Date());
+
+    gtag('config', 'G-XLGNTBL3LX');
+    </script>
+</head>
+<body>
+
+    <div class="homepage-container">
+        
+        <div class="homepage-intro">
+            <h1>Hello, I'm Yuvraj</h1>
+            <p><b>I'm a developer, creator, and problem solver.</b></p>
+        </div>
+
+        <div class="section-grid">
+            
+            <div class="section-card" data-target="page-projects">
+                <h2>Projects</h2>
+                <p>See a selection of my best work and case studies.</p>
+            </div>
+
+            <div class="section-card" data-target="page-about">
+                <h2>About Me</h2>
+                <p>Learn about my background, skills, and journey.</p>
+            </div>
+
+            <div class="section-card" data-target="page-Research">
+                <h2>Research Papers</h2>
+                <p>A list of some research papers i wrote</p>
+            </div>
+
+            <!-- ======== NEW CARD ADDED HERE ======== -->
+            <div class="section-card" data-target="page-achievements">
+                <h2>Achievements</h2>
+                <p>View my academic and sports accomplishments.</p>
+            </div>
+
+            <div class="section-card" data-target="page-contact">
+                <h2>Contact</h2>
+                <p>Get in touch or find me online.</p>
+            </div>
+
+        </div>
+    </div>
+
+
+    <div class="page-container">
+
+        <!-- ======== RESEARCH SECTION (FROM PREVIOUS STEP) ======== -->
+        <section class="page-section" id="page-Research">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>My Research Papers</h1>
+                <p>Below are my research papers. Click on any card to download the PDF.</p>
+
+                <div class="section-grid">
+                    
+                    <a href="research/Ethical Hacking.pdf" download class="section-card-link-wrapper">
+                        <div class="section-card">
+                            <h2>Ethical Hacking</h2>
+                            <p>A research paper on the principles and practices of ethical hacking.</p>
+                        </div>
+                    </a>
+
+                    <a href="research/International Terrorism.pdf" download class="section-card-link-wrapper">
+                        <div class="section-card">
+                            <h2>International Terrorism</h2>
+                            <p>An analysis of modern international terrorism trends and countermeasures.</p>
+                        </div>
+                    </a>
+                
+                </div>
+            </div>
+        </section> 
+                
+
+        <section class="page-section" id="page-projects">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>My Projects</h1>
+                <p>Here are a few things I've built. Click on any project to see the details.</p>
+                
+                <div class="section-grid">
+                    
+                    <div class="section-card" data-target="page-project-1">
+                        <h2>Morse Code Gloves</h2>
+                        <p>Made a break-apart glove which can be used to communicate wirelessly
+                            (through bluetooth) with any computer/phone
+                        </p>
+                    </div>
+
+                    <div class="section-card" data-target="page-project-2">
+                        <h2>Project Two: Video Demo</h2>
+                        <p>A project best shown with an embedded video.</p>
+                    </div>
+
+                    </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="page-about">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>About Me</h1>
+                <p>
+                    A relentless problem-solver with a deep passion for coding and innovation. 
+                    I constantly explore how technology can reshape the way we interact with the world. 
+                    My curiosity drives me to experiment, build, and push boundaries—whether it's 
+                    crafting intelligent systems, optimizing algorithms, or simply finding new ways to 
+                    automate the mundane. Creativity fuels my approach to problem-solving. I love turning 
+                    abstract ideas into functional solutions, and I thrive on the challenge of making 
+                    things work in smarter, more efficient ways. For me, learning is a never-ending process, 
+                    and I'm always eager to dive into new technologies, take on ambitious projects, 
+                    and explore the unknown.
+                </p>
+                <h2>My Skills</h2>
+                <ul>
+                    <li>Java</li>
+                    <li>C & C++</li>
+                    <li>Python (FastAPI, Django)</li>
+                    <li>Database Management (SQL, NoSQL)</li>
+                </ul>
+            </div>
+        </section>
+
+        <!-- ======== NEW ACHIEVEMENTS SECTION ADDED HERE ======== -->
+        <section class="page-section" id="page-achievements">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>Achievements</h1>
+                
+                <!-- --- Sub-section 1: Sports --- -->
+                <h2 class="subsection-title">Sports Achievements</h2>
+                <p>A collection of my athletic awards and recognitions.</p>
+                
+                <div class="achievement-gallery">
+                    
+                    <div class="achievement-card">
+                        <img src="https://placehold.co/400x300/bda76b/ffffff?text=Trophy+Image" alt="Sports Trophy">
+                        <p>National Level Tournament - 1st Place</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <img src="https://placehold.co/400x300/bda76b/ffffff?text=Medal+Image" alt="Sports Medal">
+                        <p>Regional Championship Medal</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <img src="https://placehold.co/400x300/bda76b/ffffff?text=Team+Photo" alt="Team Photo">
+                        <p>Varsity Team Captain (2023)</p>
+                    </div>
+
+                </div> <!-- End of Sports Gallery -->
+
+                <!-- --- Sub-section 2: Academic --- -->
+                <h2 class="subsection-title">Academic Achievements</h2>
+                <p>My academic honors, certificates, and awards.</p>
+
+                <div class="achievement-gallery">
+                    
+                    <div class="achievement-card">
+                        <img src="https://placehold.co/400x300/333333/ffffff?text=Certificate" alt="Academic Certificate">
+                        <p>Dean's List (All Semesters)</p>
+                    </div>
+
+                    <div class="achievement-card">
+                        <img src="httpsS://placehold.co/400x300/333333/ffffff?text=Award+Photo" alt="Award Ceremony">
+                        <p>University Research Symposium Winner</p>
+                    </div>
+
+                </div> <!-- End of Academic Gallery -->
+
+            </div>
+        </section>
+
+
+        <section class="page-section" id="page-contact">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>Get In Touch</h1>
+                <p>I'm always open to discussing new projects, creative ideas, or opportunities to be part of your visions. Feel free to reach out to me.</p>
+                <ul>
+                    <li><strong>Email:</strong> <a href="mailto:yuvraj@yuvrajdewan.com">yuvraj@yuvrajdewan.com</a></li>
+                    <li><strong>LinkedIn:</strong> <a href="https://www.linkedin.com/in/yuvrajdewan" target="_blank">www.linkedin.com/in/yuvrajdewan</a></li>
+                    <li><strong>GitHub:</strong> <a href="https://github.com/yuvidewan" target="_blank">github.com/yuvidewan</a></li>
+                </ul>
+            </div>
+        </section>
+
+
+        <!-- ======== PROJECT 1 (CONTENT UPDATED) ======== -->
+        <section class="page-section" id="page-project-1">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>Morse Code Gloves</h1>
+                <p>A detailed description of the project. It's a break-apart glove that uses an ESP32 to send Morse code messages wirelessly via Bluetooth to any paired device, like a computer or phone.</p>
+                <img src="https://placehold.co/800x400/bda76b/ffffff?text=Morse+Glove+Diagram" alt="Project Screenshot">
+                <p>More text can go here, explaining the development process or challenges faced.</p>
+            </div>
+        </section>
+
+        <section class="page-section" id="page-project-2">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            
+            <div class="page-content">
+                <h1>Project Two: Video Demo</h1>
+                <p>This project is best shown with a video. Below is an embedded YouTube video demonstrating its features.</p>
+                <div class="video-container">
+                    <iframe src="https://www.youtube.com/embed/dQw4w9WgXcQ" frameborder="0" allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture" allowfullscreen></iframe>
+                </div>
+            </div>
+        </section>
+
+    </div> 
+    
+    <script src="script.js" defer></script>
+</body>
+</html>

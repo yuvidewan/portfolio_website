@@ -1,0 +1,258 @@
+/* --- 1. Color Scheme & Base Setup --- */
+:root {
+    --bg-color: #f8f8f6;       /* Not plain white, a very light warm gray */
+    --card-bg: #ffffff;      /* White cards to "pop" */
+    --text-color: #333333;   /* Dark charcoal, not pure black */
+    --accent-gold: #bda76b;  /* A muted, professional gold */
+    --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+}
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", Roboto, sans-serif;
+    background-color: var(--bg-color);
+    color: var(--text-color);
+    line-height: 1.6;
+}
+
+/* --- 2. Homepage Layout --- */
+.homepage-container {
+    max-width: 1200px;
+    margin: 0 auto;
+    padding: 4rem 2rem;
+    text-align: center;
+}
+
+.homepage-intro {
+    margin-bottom: 3rem;
+}
+
+.homepage-intro h1 {
+    font-size: 2.5rem;
+    font-weight: 300;
+}
+
+.homepage-intro p {
+    font-size: 1.1rem;
+    color: #666;
+    max-width: 600px;
+    margin: 0.5rem auto 0;
+}
+
+/* The grid of clickable sections */
+.section-grid {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+    gap: 2rem;
+}
+
+.section-card {
+    background: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    padding: 2rem;
+    cursor: pointer;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    border-bottom: 4px solid transparent; /* Placeholder for gold hover */
+}
+
+.section-card h2 {
+    font-size: 1.5rem;
+    color: var(--accent-gold);
+    margin-bottom: 0.5rem;
+}
+
+.section-card p {
+    color: #777;
+}
+
+.section-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+    border-bottom-color: var(--accent-gold);
+}
+
+/* --- 3. Full-Page Sections (The "Expanded" View) --- */
+
+/* This container holds all the full-page sections */
+.page-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    /* Hidden by default, controls visibility of all pages */
+    pointer-events: none; 
+}
+
+.page-section {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: var(--bg-color);
+    
+    /* Hidden by default */
+    opacity: 0;
+    pointer-events: none;
+    
+    /* Animation setup */
+    transform: scale(0.95); /* Start slightly small */
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+
+    /* Allows content inside to scroll if it overflows */
+    overflow-y: auto;
+}
+
+/* The active state, triggered by JavaScript */
+.page-section.is-active {
+    opacity: 1;
+    transform: scale(1);
+    pointer-events: auto;
+}
+
+/* --- 4. In-Page Content & Back Arrow --- */
+.page-content {
+    max-width: 1000px;
+    margin: 0 auto;
+    padding: 6rem 2rem 4rem; /* Extra padding at top for back arrow */
+}
+
+.inbuilt-back-arrow {
+    position: absolute;
+    top: 2rem;
+    left: 2rem;
+    font-size: 2rem;
+    font-weight: bold;
+    color: var(--accent-gold);
+    text-decoration: none;
+    cursor: pointer;
+    transition: transform 0.3s ease;
+}
+
+.inbuilt-back-arrow:hover {
+    transform: translateX(-5px);
+}
+
+/* Example content styling */
+.page-content h1 {
+    font-size: 3rem;
+    font-weight: 300;
+    margin-bottom: 1rem;
+    border-bottom: 2px solid var(--accent-gold);
+    display: inline-block;
+    padding-bottom: 0.5rem;
+}
+
+.page-content p {
+    font-size: 1.1rem;
+    margin-bottom: 1.5rem;
+}
+
+.page-content img {
+    max-width: 100%;
+    border-radius: 8px;
+    margin-bottom: 1rem;
+}
+
+.page-content .video-container {
+    position: relative;
+    padding-bottom: 56.25%; /* 16:9 Aspect Ratio */
+    height: 0;
+    overflow: hidden;
+    max-width: 100%;
+    background: #000;
+    border-radius: 8px;
+}
+
+.video-container iframe {
+    position: absolute;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+}
+/* --- 5. Styles for Research Paper Download Cards --- */
+
+/* This styles the <a> tag that wraps the download card */
+.section-card-link-wrapper {
+    text-decoration: none; /* Removes the blue underline */
+    color: inherit; /* Makes the text inherit its color from parent */
+    display: block; /* Allows the link to behave like a block */
+}
+
+/* This ensures the card inside the link still has its hover effect */
+.section-card-link-wrapper .section-card {
+    /* The hover effects from section 2 will apply, 
+       but you could add more specific ones here if you wanted */
+    width: 100%; /* Ensures it fills the wrapper */
+}
+
+/* --- 6. Styles for Achievements Page --- */
+
+/* Style for the sub-section titles (Sports, Academic) */
+.subsection-title {
+    font-size: 2rem;
+    font-weight: 300;
+    color: var(--accent-gold);
+    border-bottom: 2px solid var(--bg-color);
+    padding-bottom: 0.5rem;
+    margin-top: 3rem; /* Adds space between sections */
+    margin-bottom: 1rem;
+}
+
+/* This is the grid container for the pictures */
+.achievement-gallery {
+    display: grid;
+    /* This grid is responsive: 
+       - It creates columns that are at least 250px wide.
+       - 'auto-fit' tells it to fill the row with as many columns as fit.
+       - '1fr' means they will all stretch equally to fill the space.
+    */
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 1.5rem;
+    margin-bottom: 2rem; /* Space below each gallery */
+}
+
+/* This is the "trophy card" for each picture */
+.achievement-card {
+    background-color: var(--card-bg);
+    border-radius: 8px;
+    box-shadow: var(--shadow);
+    overflow: hidden; /* This keeps the image corners rounded */
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.achievement-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.08);
+}
+
+/* Styling for the image preview itself */
+.achievement-card img {
+    width: 100%;
+    height: 200px; /* Fixed height for a uniform gallery */
+    
+    /* This is the most important part:
+       It scales the image to fill the container 
+       without stretching or distorting it.
+    */
+    object-fit: cover; 
+    display: block;
+}
+
+/* Styling for the caption below the image */
+.achievement-card p {
+    padding: 1rem;
+    font-size: 0.9rem;
+    color: #555;
+    font-weight: 600;
+    margin: 0;
+    text-align: center;
+}
