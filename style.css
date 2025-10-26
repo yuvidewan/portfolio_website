@@ -5,6 +5,16 @@
     --text-color: #333333;   /* Dark charcoal, not pure black */
     --accent-gold: #bda76b;  /* A muted, professional gold */
     --shadow: 0 4px 15px rgba(0, 0, 0, 0.05);
+
+    /* --- NEW: "Batman" Fun Mode Colors --- */
+    --fun-bg: #111111;        /* Very dark grey (almost black) */
+    --fun-card: #222222;      /* Dark grey card */
+    --fun-accent: var(--accent-gold); /* Use the gold for accent */
+    --fun-text: #eeeeee;      /* Light grey text */
+    --fun-shadow: 0 4px 20px rgba(189, 167, 107, 0.1); /* Gold shadow */
+
+    /* This makes the color change smooth */
+    transition: background-color 0.4s ease, color 0.4s ease;
 }
 
 * {
@@ -18,6 +28,7 @@ body {
     background-color: var(--bg-color);
     color: var(--text-color);
     line-height: 1.6;
+    transition: background-color 0.4s ease;
 }
 
 /* --- 2. Homepage Layout --- */
@@ -35,6 +46,7 @@ body {
 .homepage-intro h1 {
     font-size: 2.5rem;
     font-weight: 300;
+    transition: color 0.4s ease;
 }
 
 .homepage-intro p {
@@ -42,6 +54,7 @@ body {
     color: #666;
     max-width: 600px;
     margin: 0.5rem auto 0;
+    transition: color 0.4s ease;
 }
 
 /* The grid of clickable sections */
@@ -57,7 +70,7 @@ body {
     box-shadow: var(--shadow);
     padding: 2rem;
     cursor: pointer;
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease, border-bottom-color 0.3s ease;
     border-bottom: 4px solid transparent; /* Placeholder for gold hover */
 }
 
@@ -65,10 +78,12 @@ body {
     font-size: 1.5rem;
     color: var(--accent-gold);
     margin-bottom: 0.5rem;
+    transition: color 0.4s ease;
 }
 
 .section-card p {
     color: #777;
+    transition: color 0.4s ease;
 }
 
 .section-card:hover {
@@ -104,7 +119,7 @@ body {
     
     /* Animation setup */
     transform: scale(0.95); /* Start slightly small */
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out, background-color 0.4s ease;
 
     /* Allows content inside to scroll if it overflows */
     overflow-y: auto;
@@ -133,7 +148,7 @@ body {
     color: var(--accent-gold);
     text-decoration: none;
     cursor: pointer;
-    transition: transform 0.3s ease;
+    transition: transform 0.3s ease, color 0.4s ease;
 }
 
 .inbuilt-back-arrow:hover {
@@ -148,6 +163,7 @@ body {
     border-bottom: 2px solid var(--accent-gold);
     display: inline-block;
     padding-bottom: 0.5rem;
+    transition: border-bottom-color 0.4s ease;
 }
 
 .page-content p {
@@ -205,6 +221,7 @@ body {
     padding-bottom: 0.5rem;
     margin-top: 3rem; /* Adds space between sections */
     margin-bottom: 1rem;
+    transition: color 0.4s ease, border-bottom-color 0.4s ease;
 }
 
 /* This is the grid container for the pictures */
@@ -226,7 +243,7 @@ body {
     border-radius: 8px;
     box-shadow: var(--shadow);
     overflow: hidden; /* This keeps the image corners rounded */
-    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    transition: transform 0.3s ease, box-shadow 0.3s ease, background-color 0.4s ease;
 }
 
 .achievement-card:hover {
@@ -255,6 +272,7 @@ body {
     font-weight: 600;
     margin: 0;
     text-align: center;
+    transition: color 0.4s ease;
 }
 
 /* --- 7. Styles for Redesigned "About Me" Page --- */
@@ -286,6 +304,7 @@ body {
     border-radius: 12px; /* A softer "squircle" */
     box-shadow: 0 10px 30px rgba(0, 0, 0, 0.1);
     border: 4px solid var(--card-bg);
+    transition: border-color 0.4s ease;
 }
 
 .about-details .subsection-title {
@@ -382,5 +401,236 @@ body {
 .contact-card-text span {
     font-size: 0.9rem;
     color: #777;
-    word-break: break-all; /* Prevents long links from overflowing */
+    word-break: break-all;
+    transition: color 0.4s ease;
 }
+
+
+/* --- 9. NEW: Fun Mode Toggle Switch (MOVED) --- */
+.fun-mode-toggle-container {
+    position: fixed; /* Fixed to viewport */
+    bottom: 2rem;    /* 2rem from bottom */
+    right: 2rem;     /* 2rem from right */
+    z-index: 998;  /* Above content, below modal */
+    display: flex;
+    align-items: center;
+    gap: 0.75rem;
+    font-weight: 500;
+    font-size: 0.9rem;
+    color: #888;
+    background-color: var(--card-bg); /* Add a subtle bg */
+    padding: 0.5rem 1rem;
+    border-radius: 30px;
+    box-shadow: var(--shadow);
+    transition: background-color 0.4s ease, color 0.4s ease, box-shadow 0.4s ease;
+}
+
+.fun-mode-switch {
+    position: relative;
+    display: inline-block;
+    width: 50px;
+    height: 26px;
+}
+
+.fun-mode-switch input {
+    opacity: 0;
+    width: 0;
+    height: 0;
+}
+
+.fun-mode-slider {
+    position: absolute;
+    cursor: pointer;
+    top: 0;
+    left: 0;
+    right: 0;
+    bottom: 0;
+    background-color: #ccc;
+    transition: .4s;
+    border-radius: 26px;
+}
+
+.fun-mode-slider:before {
+    position: absolute;
+    content: "";
+    height: 20px;
+    width: 20px;
+    left: 3px;
+    bottom: 3px;
+    background-color: white;
+    transition: .4s;
+    border-radius: 50%;
+}
+
+input:checked + .fun-mode-slider {
+    background-color: var(--fun-accent);
+}
+
+input:focus + .fun-mode-slider {
+    box-shadow: 0 0 1px var(--fun-accent);
+}
+
+input:checked + .fun-mode-slider:before {
+    transform: translateX(24px);
+}
+
+
+/* --- 10. NEW: Fun Mode Theme Activation --- */
+body.fun-mode-active {
+    --bg-color: var(--fun-bg);
+    --card-bg: var(--fun-card);
+    --text-color: var(--fun-text);
+    --accent-gold: var(--fun-accent);
+    --shadow: var(--fun-shadow);
+
+    background-color: var(--fun-bg);
+    color: var(--fun-text);
+}
+
+/* Re-theme all components automatically */
+body.fun-mode-active .homepage-intro p {
+    color: #aaa;
+}
+body.fun-mode-active .section-card p {
+    color: #ccc;
+}
+body.fun-mode-active .achievement-card p {
+    color: #f0f0f0;
+}
+body.fun-mode-active .skill-tag {
+    border-color: #444;
+}
+body.fun-mode-active .skill-tag:hover {
+    box-shadow: 0 4px 15px rgba(189, 167, 107, 0.3);
+}
+body.fun-mode-active .profile-picture {
+    border-color: var(--fun-card);
+}
+body.fun-mode-active .contact-card {
+    border-color: transparent;
+}
+body.fun-mode-active .contact-card:hover {
+    border-color: #444;
+}
+body.fun-mode-active .contact-card-text strong {
+    color: #f0f0f0;
+}
+body.fun-mode-active .contact-card-text span {
+    color: #ccc;
+}
+body.fun-mode-active .fun-mode-toggle-container {
+    color: #888;
+    background-color: var(--card-bg); /* Use card bg for dark mode */
+}
+
+
+/* --- 11. NEW: Joke Modal Styles --- */
+.joke-modal-overlay {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background-color: rgba(0, 0, 0, 0.6);
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    z-index: 1000;
+    opacity: 0;
+    pointer-events: none;
+    transition: opacity 0.3s ease;
+}
+
+.joke-modal-overlay.is-active {
+    opacity: 1;
+    pointer-events: auto;
+}
+
+.joke-modal-content {
+    background-color: var(--card-bg);
+    color: var(--text-color);
+    padding: 2rem;
+    border-radius: 8px;
+    max-width: 400px;
+    width: 90%;
+    text-align: center;
+    box-shadow: 0 10px 30px rgba(0, 0, 0, 0.2);
+    transform: scale(0.9);
+    transition: all 0.3s ease;
+}
+
+.joke-modal-overlay.is-active .joke-modal-content {
+    transform: scale(1);
+}
+
+.joke-modal-content h3 {
+    color: var(--accent-gold);
+    margin-top: 0;
+    margin-bottom: 1rem;
+}
+
+.joke-modal-content p {
+    font-size: 1.1rem;
+    margin-bottom: 2rem;
+}
+
+.joke-modal-button {
+    background-color: var(--accent-gold);
+    color: var(--card-bg);
+    border: none;
+    padding: 0.75rem 1.5rem;
+    border-radius: 20px;
+    font-weight: 600;
+    font-size: 1rem;
+    cursor: pointer;
+    transition: all 0.3s ease;
+}
+
+.joke-modal-button:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.2);
+}
+
+body.fun-mode-active .joke-modal-button {
+    color: #111;
+}
+
+/* --- 12. NEW: Fun Mode Travel Gallery Styles --- */
+/* Target only achievement cards inside the travel page */
+#page-travel .achievement-card {
+    position: relative;
+    background-color: transparent; /* Remove card background */
+    padding: 0; /* Remove padding */
+    box-shadow: 0 8px 25px rgba(0, 0, 0, 0.2); /* Stronger shadow */
+}
+
+/* Make image fill the card */
+#page-travel .achievement-card img {
+    height: 300px; /* Taller images */
+    border-radius: 8px; /* Apply radius to image itself */
+}
+
+/* Style for the text caption overlay */
+#page-travel .travel-caption {
+    position: absolute;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    padding: 1.5rem 1rem 1rem;
+    /* Gradient: 80% black at bottom, fading to 0% */
+    background: linear-gradient(0deg, rgba(0,0,0,0.8) 0%, rgba(0,0,0,0) 100%);
+    border-bottom-left-radius: 8px;
+    border-bottom-right-radius: 8px;
+}
+
+/* Style for text inside the caption */
+#page-travel .achievement-card p {
+    font-size: 1rem;
+    font-weight: 600;
+    color: #ffffff;
+    text-shadow: 0 1px 3px rgba(0,0,0,0.5); /* Text shadow */
+    text-align: left;
+    margin: 0;
+    padding: 0;
+}
+

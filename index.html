@@ -2,7 +2,7 @@
 <html lang="en">
 <head>
     <meta charset="UTF-8">
-    <meta name="viewport" content="width=device-width, initial-scale-1.0">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
     <title>Personal Portfolio</title>
     <link rel="stylesheet" href="style.css">
     <!-- Google tag (gtag.js) -->
@@ -17,113 +17,232 @@
 </head>
 <body>
 
+    <!-- ======== FUN MODE JOKE MODAL (HIDDEN) ======== -->
+    <div id="joke-modal" class="joke-modal-overlay">
+        <div class="joke-modal-content">
+            <h3>Here's a joke for you!</h3>
+            <p id="joke-modal-text">Why don't scientists trust atoms? Because they make up everything!</p>
+            <button id="joke-modal-close" class="joke-modal-button">Awesome</button>
+        </div>
+    </div>
+
+    <!-- ======== NEW FUN MODE TOGGLE (MOVED) ======== -->
+    <div class="fun-mode-toggle-container">
+        <span>Pro Mode</span>
+        <label class="fun-mode-switch">
+            <input type="checkbox" id="fun-mode-toggle">
+            <span class="fun-mode-slider"></span>
+        </label>
+        <span>Fun Mode</span>
+    </div>
+
+    <!-- ======== HOMEPAGE ======== -->
     <div class="homepage-container">
         
         <div class="homepage-intro">
             <h1>Hello, I'm Yuvraj</h1>
             <p><b>I'm a developer, creator, and problem solver.</b></p>
+
+            <!-- ======== TOGGLE IS NO LONGER HERE ======== -->
         </div>
 
-        <div class="section-grid">
-            
-            <div class="section-card" data-target="page-projects">
-                <h2>Projects</h2>
-                <p>See a selection of my best work and case studies.</p>
+        <!-- ======== PRO MODE GRID (WRAPPED) ======== -->
+        <div id="pro-mode-grid">
+            <div class="section-grid">
+                <div class="section-card" data-target="page-projects">
+                    <h2>Projects</h2>
+                    <p>See a selection of my best work and case studies.</p>
+                </div>
+                <div class="section-card" data-target="page-about">
+                    <h2>About Me</h2>
+                    <p>Learn about my background, skills, and journey.</p>
+                </div>
+                <div class="section-card" data-target="page-Research">
+                    <h2>Research Papers</h2>
+                    <p>A list of some research papers i wrote</p>
+                </div>
+                <div class="section-card" data-target="page-achievements">
+                    <h2>Achievements</h2>
+                    <p>View my academic and sports accomplishments.</p>
+                </div>
+                <div class="section-card" data-target="page-contact">
+                    <h2>Contact</h2>
+                    <p>Get in touch or find me online.</p>
+                </div>
             </div>
-
-            <div class="section-card" data-target="page-about">
-                <h2>About Me</h2>
-                <p>Learn about my background, skills, and journey.</p>
-            </div>
-
-            <div class="section-card" data-target="page-Research">
-                <h2>Research Papers</h2>
-                <p>A list of some research papers i wrote</p>
-            </div>
-
-            <!-- ======== NEW CARD ADDED HERE ======== -->
-            <div class="section-card" data-target="page-achievements">
-                <h2>Achievements</h2>
-                <p>View my academic and sports accomplishments.</p>
-            </div>
-
-            <div class="section-card" data-target="page-contact">
-                <h2>Contact</h2>
-                <p>Get in touch or find me online.</p>
-            </div>
-
         </div>
+
+        <!-- ======== FUN MODE GRID (NEW & HIDDEN) ======== -->
+        <div id="fun-mode-grid" style="display: none;">
+            <div class="section-grid">
+                <div class="section-card" data-target="page-fun-about">
+                    <h2>About Me (The Fun Version)</h2>
+                    <p>The "official" story is above. Here's the real deal.</p>
+                </div>
+                <div class="section-card" data-target="page-travel">
+                    <h2>Travel Gallery</h2>
+                    <p>Places I've been and things I've seen.</p>
+                </div>
+            </div>
+        </div>
+
     </div>
 
 
     <div class="page-container">
 
-        <!-- ======== RESEARCH SECTION (FROM PREVIOUS STEP) ======== -->
+        <!-- ======== NEW FUN MODE PAGES ======== -->
+        <section class="page-section" id="page-fun-about">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            <div class="page-content about-page-layout">
+                <div class="about-visuals">
+                    <img src="photos/Fun_DP.jpg" alt="Fun Yuvraj" class="profile-picture">
+                </div>
+                <div class="about-details">
+                    <h1>About Me (Fun Mode)</h1>
+                    <p>
+                        Okay, now for the real story. When I'm not attached to a keyboard, you can usually find me
+                        planning my next trip, trying to find the best street food in the city, or
+                        arguing about whether pineapple belongs on pizza (it doesn't).
+                    </p>
+                    <p>
+                        I believe life's too short for boring code or bad coffee.
+                    </p>
+                    
+                    <h2 class="subsection-title">My "Other" Skills</h2>
+                    <div class="skill-list">
+                        <span class="skill-tag">Finding Wi-Fi in a desert</span>
+                        <span class="skill-tag">Packing for a week in a backpack</span>
+                        <span class="skill-tag">Expert Noodle Slurper</span>
+                        <span class="skill-tag">Debugging... my travel plans</span>
+                        <span class="skill-tag">Telling bad jokes</span>
+                    </div>
+                </div>
+            </div>
+        </section>
+
+        <section class="page-section" id="page-travel">
+            <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
+            <div class="page-content">
+                <h1>Travel Gallery</h1>
+                <p>A few snapshots from my adventures around the globe.</p>
+                
+                <h2 class="subsection-title">Location: Langkawi, Malaysia</h2>
+                <div class="achievement-gallery">
+                    <!-- Card structure is new -->
+                    <div class="achievement-card">
+                        <img src="photos/Langkawi/hotel_outside.jpg" alt="Langkawi 1">
+                        <div class="travel-caption">
+                            <p>Lighthouse</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Langkawi/jungle_trek.jpg" alt="Langkawi 2">
+                        <div class="travel-caption">
+                            <p>Jungle Trek</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Langkawi/swimming_sea.jpg" alt="Langkawi 3">
+                        <div class="travel-caption">
+                            <p>Swimming with the fish</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Langkawi/view_balcony.jpg" alt="Langkawi 4">
+                        <div class="travel-caption">
+                            <p>Sunset</p>
+                        </div>
+                    </div>
+                </div>
+
+                <h2 class="subsection-title">Location: Goa, India</h2>
+                <div class="achievement-gallery">
+                    <div class="achievement-card">
+                        <img src="photos/Goa/Goa1.jpg" alt="Goa 1">
+                        <div class="travel-caption">
+                            <p>Rocky Coastline</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Goa/Goa2.jpg" alt="Goa 2">
+                        <div class="travel-caption">
+                            <p>Night swim</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Goa/Goa3.jpg" alt="Goa 3">
+                        <div class="travel-caption">
+                            <p>Morning walk</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Goa/Goa4.jpg" alt="Goa 4">
+                        <div class="travel-caption">
+                            <p>Cold Rains</p>
+                        </div>
+                    </div>
+                    <div class="achievement-card">
+                        <img src="photos/Goa/Goa5.jpg" alt="Goa 5">
+                        <div class="travel-caption">
+                            <p>Sunset at the beach</p>
+                        </div>
+                    </div>
+                </div>
+            </div>
+        </section>
+        
+        
+        <!-- ======== EXISTING PRO MODE PAGES (UNCHANGED) ======== -->
+
         <section class="page-section" id="page-Research">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
             <div class="page-content">
                 <h1>My Research Papers</h1>
                 <p>Below are my research papers. Click on any card to download the PDF.</p>
-
                 <div class="section-grid">
-                    
                     <a href="research/Ethical Hacking.pdf" download class="section-card-link-wrapper">
                         <div class="section-card">
                             <h2>Ethical Hacking</h2>
                             <p>A research paper on the principles and practices of ethical hacking.</p>
                         </div>
                     </a>
-
                     <a href="research/International Terrorism.pdf" download class="section-card-link-wrapper">
                         <div class="section-card">
                             <h2>International Terrorism</h2>
                             <p>An analysis of modern international terrorism trends and countermeasures.</p>
                         </div>
                     </a>
-                
                 </div>
             </div>
         </section> 
                 
-
         <section class="page-section" id="page-projects">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
             <div class="page-content">
                 <h1>My Projects</h1>
                 <p>Here are a few things I've built. Click on any project to see the details.</p>
-                
                 <div class="section-grid">
-                    
                     <div class="section-card" data-target="page-project-1">
                         <h2>Morse Code Gloves</h2>
                         <p>Made a break-apart glove which can be used to communicate wirelessly
                             (through bluetooth) with any computer/phone
                         </p>
                     </div>
-
                     <div class="section-card" data-target="page-project-2">
                         <h2>Project Two: Video Demo</h2>
                         <p>A project best shown with an embedded video.</p>
                     </div>
-
-                    </div>
+                </div>
             </div>
         </section>
 
         <section class="page-section" id="page-about">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
-            <!-- NEW: Redesigned About Me layout -->
             <div class="page-content about-page-layout">
-                
-                <!-- Column 1: Profile Picture -->
                 <div class="about-visuals">
                     <img src="photos/Headshot.jpg" alt="Yuvraj Dewan" class="profile-picture">
                 </div>
-
-                <!-- Column 2: Text Content -->
                 <div class="about-details">
                     <h1>About Me</h1>
                     <p>
@@ -138,7 +257,6 @@
                         abstract ideas into functional solutions, and I thrive on the challenge of making 
                         things work in smarter, more efficient ways.
                     </p>
-                    
                     <h2 class="subsection-title">My Skills</h2>
                     <div class="skill-list">
                         <span class="skill-tag">Java</span>
@@ -155,122 +273,83 @@
             </div>
         </section>
 
-        <!-- ======== NEW ACHIEVEMENTS SECTION ADDED HERE ======== -->
         <section class="page-section" id="page-achievements">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
             <div class="page-content">
                 <h1>Achievements</h1>
-                
-                <!-- --- Sub-section 1: Sports --- -->
                 <h2 class="subsection-title">Sports Achievements</h2>
                 <p>A collection of my athletic awards and recognitions.</p>
-                
                 <div class="achievement-gallery">
-                    
                     <div class="achievement-card">
                         <img src="photos/National_Certificate.jpg" alt="Sports Certificate">
                         <p>Nationals Tournament</p>
                     </div>
-
                     <div class="achievement-card">
                         <img src="photos/Best_Athlete.jpg" alt="Sports Trophy">
                         <p>Best Athlete Modern school (Nationwide) 2023</p>
                     </div>
-                    
                     <div class="achievement-card">
                         <img src="photos/State_Certificate.jpg" alt="Sports Certificate">
                         <p>Delhi State Tournament - 1st Place</p>
                     </div>
-                    
                     <div class="achievement-card">
                         <video src="videos/Vasant_Valley_Dribbling.mp4" style="width:100%; height:200px; object-fit:cover; display:block;" autoplay loop muted playsinline></video>
                         <p>Zonal Match</p>
                     </div>
-
                     <div class="achievement-card">
                         <img src="photos/Intermodern_Trophy.jpg" alt="Sports Trophy">
                         <p>Winner - All India Modern Tournament</p>
                     </div>
-
                     <div class="achievement-card">
                         <img src="photos/Medals.jpg" alt="Sports Medals">
                         <p>Football & Athletics Champion 2023</p>
                     </div>
-
-                </div> <!-- End of Sports Gallery -->
-
-                <!-- --- Sub-section 2: Academic --- -->
+                </div>
                 <h2 class="subsection-title">Academic Achievements</h2>
                 <p>My academic honors, certificates, and awards.</p>
-
                 <div class="achievement-gallery">
-                    
                     <div class="achievement-card">
                         <img src="photos/academic1.jpg" alt="Academic Certificate">
                         <p>Vice President Computer Club</p>
                     </div>
-
-                    <!-- <div class="achievement-card">
-                        <img src="httpsS://placehold.co/400x300/333333/ffffff?text=Award+Photo" alt="Award Ceremony">
-                        <p>University Research Symposium Winner</p>
-                    </div> -->
-
-                </div> <!-- End of Academic Gallery -->
-
+                </div>
             </div>
         </section>
 
-
         <section class="page-section" id="page-contact">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
-            <!-- NEW: Redesigned Contact layout -->
             <div class="page-content">
                 <h1>Get In Touch</h1>
                 <p>I'm always open to discussing new projects, creative ideas, or opportunities. Feel free to reach out to me through your preferred channel below.</p>
-                
                 <div class="contact-links-grid">
-                    
-                    <!-- Card 1: Email -->
                     <a href="mailto:yuvraj@yuvrajdewan.com" class="contact-card">
-                        <!-- SVG Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M1.946 9.315c-.522-.174-.527-.455.01-.634l19.087-6.362c.529-.176.832.12.684.638l-5.454 19.086c-.15.529-.455.547-.679.045L12 14l-7 3.5c-.27.135-.57-.01-.53-.343L1.946 9.315zM12.717 14.18l6.23-6.23-1.03 3.612-5.2 2.618z"/></svg>
                         <div class="contact-card-text">
                             <strong>Email Me</strong>
                             <span>yuvraj@yuvrajdewan.com</span>
                         </div>
                     </a>
-                    
-                    <!-- Card 2: LinkedIn -->
                     <a href="https://www.linkedin.com/in/yuvrajdewan" target="_blank" class="contact-card">
-                        <!-- SVG Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M19 0h-14c-2.761 0-5 2.239-5 5v14c0 2.761 2.239 5 5 5h14c2.762 0 5-2.239 5-5v-14c0-2.761-2.238-5-5-5zm-11 19h-3v-11h3v11zm-1.5-12.268c-.966 0-1.75-.79-1.75-1.764s.784-1.764 1.75-1.764 1.75.79 1.75 1.764-.783 1.764-1.75 1.764zm13.5 12.268h-3v-5.604c0-3.368-4-3.113-4 0v5.604h-3v-11h3v1.765c1.396-2.586 7-2.777 7 2.476v6.759z"/></svg>
                         <div class="contact-card-text">
                             <strong>LinkedIn</strong>
                             <span>www.linkedin.com/in/yuvrajdewan</span>
                         </div>
                     </a>
-
-                    <!-- Card 3: GitHub -->
                     <a href="https://github.com/yuvidewan" target="_blank" class="contact-card">
-                        <!-- SVG Icon -->
                         <svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 24 24" fill="currentColor" width="32" height="32"><path d="M12 0c-6.626 0-12 5.373-12 12 0 5.302 3.438 9.8 8.207 11.387.599.111.793-.261.793-.577v-2.234c-3.338.726-4.033-1.416-4.033-1.416-.546-1.387-1.333-1.756-1.333-1.756-1.089-.745.083-.729.083-.729 1.205.084 1.839 1.237 1.839 1.237 1.07 1.834 2.807 1.304 3.492.997.109-.775.418-1.305.762-1.604-2.665-.305-5.467-1.334-5.467-5.931 0-1.311.469-2.381 1.236-3.221-.124-.303-.535-1.524.117-3.176 0 0 1.008-.322 3.301 1.23.957-.266 1.983-.399 3.003-.404 1.02.005 2.047.138 3.006.404 2.291-1.552 3.297-1.23 3.297-1.23.653 1.653.242 2.874.118 3.176.77.84 1.235 1.91 1.235 3.221 0 4.609-2.807 5.624-5.479 5.921.43.372.823 1.102.823 2.222v3.293c0 .319.192.694.801.576 4.765-1.589 8.199-6.086 8.199-11.386 0-6.627-5.373-12-12-12z"/></svg>
                         <div class="contact-card-text">
                             <strong>GitHub</strong>
                             <span>github.com/yuvidewan</span>
                         </div>
                     </a>
-
                 </div>
             </div>
         </section>
 
 
-        <!-- ======== PROJECT 1 (CONTENT UPDATED) ======== -->
         <section class="page-section" id="page-project-1">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
             <div class="page-content">
                 <h1>Morse Code Gloves</h1>
                 <p>A detailed description of the project. It's a break-apart glove that uses an ESP32 to send Morse code messages wirelessly via Bluetooth to any paired device, like a computer or phone.</p>
@@ -281,7 +360,6 @@
 
         <section class="page-section" id="page-project-2">
             <a class="inbuilt-back-arrow" data-target="back">&larr; Back</a>
-            
             <div class="page-content">
                 <h1>Project Two: Video Demo</h1>
                 <p>This project is best shown with a video. Below is an embedded YouTube video demonstrating its features.</p>
@@ -296,3 +374,4 @@
     <script src="script.js" defer></script>
 </body>
 </html>
+
