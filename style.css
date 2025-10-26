@@ -17,6 +17,10 @@
     transition: background-color 0.4s ease, color 0.4s ease;
 }
 
+html {
+    scroll-behavior: smooth;
+}
+
 * {
     box-sizing: border-box;
     margin: 0;
@@ -29,7 +33,17 @@ body {
     color: var(--text-color);
     line-height: 1.6;
     transition: background-color 0.4s ease;
+    /* This ensures that if the page content isn't scrollable, the body itself won't be */
+    overflow-x: hidden; 
 }
+
+/* --- NEW: Mobile Scroll Lock --- */
+/* This is the magic rule. It prevents the body from scrolling
+   ONLY when a page section is active. */
+body.page-is-open {
+    overflow: hidden;
+}
+
 
 /* --- 2. Homepage Layout --- */
 .homepage-container {
@@ -123,6 +137,8 @@ body {
 
     /* Allows content inside to scroll if it overflows */
     overflow-y: auto;
+    /* Fixes scrolling on iOS */
+    -webkit-overflow-scrolling: touch; 
 }
 
 /* The active state, triggered by JavaScript */
@@ -149,6 +165,7 @@ body {
     text-decoration: none;
     cursor: pointer;
     transition: transform 0.3s ease, color 0.4s ease;
+    z-index: 10; /* Ensure it's above content */
 }
 
 .inbuilt-back-arrow:hover {
@@ -252,7 +269,8 @@ body {
 }
 
 /* Styling for the image preview itself */
-.achievement-card img {
+.achievement-card img,
+.achievement-card video { /* Apply to video as well */
     width: 100%;
     height: 200px; /* Fixed height for a uniform gallery */
     
@@ -632,5 +650,86 @@ body.fun-mode-active .joke-modal-button {
     text-align: left;
     margin: 0;
     padding: 0;
+}
+
+
+/* --- 13. NEW: Mobile Responsive Styles --- */
+
+/* These rules apply to any screen 640px wide or smaller */
+@media (max-width: 640px) {
+
+    /* --- Homepage --- */
+    .homepage-container {
+        /* Reduce padding on mobile */
+        padding: 3rem 1.5rem; 
+    }
+
+    .homepage-intro h1 {
+        font-size: 2rem; /* Make main title smaller */
+    }
+
+    /* --- General Page Content --- */
+    .page-content {
+        /* Reduce padding on mobile */
+        padding: 5rem 1.5rem 3rem;
+    }
+
+    .page-content h1 {
+        font-size: 2.2rem; /* Make section titles smaller */
+    }
+
+    .subsection-title {
+        font-size: 1.7rem; /* Make sub-titles smaller */
+    }
+
+    /* --- Back Arrow --- */
+    .inbuilt-back-arrow {
+        top: 1.5rem;
+        left: 1.5rem;
+        font-size: 1.5rem; /* Make arrow smaller */
+    }
+
+    /* --- Grids --- */
+    .section-grid {
+        gap: 1rem; /* Reduce space between cards */
+    }
+
+    .achievement-gallery {
+        gap: 1rem; /* Reduce space between pictures */
+    }
+
+    /* --- About Me Page --- */
+    .about-page-layout {
+        gap: 1.5rem; /* Reduce space between pic and text */
+    }
+
+    /* --- Contact Page --- */
+    .contact-card {
+        padding: 1rem 1.5rem;
+        gap: 1rem;
+    }
+
+    .contact-card svg {
+        width: 28px;
+        height: 28px;
+    }
+
+    .contact-card-text strong {
+        font-size: 1rem;
+    }
+
+    /* --- Fun Mode Toggle --- */
+    .fun-mode-toggle-container {
+        /* Move it closer to the edge on mobile */
+        bottom: 1rem;
+        right: 1rem;
+        padding: 0.4rem 0.8rem;
+    }
+
+    /* --- Joke Modal --- */
+    .joke-modal-content {
+        /* Reduce padding for small screens */
+        padding: 1.5rem;
+    }
 }
 

@@ -10,6 +10,7 @@ document.addEventListener('DOMContentLoaded', () => {
     const jokeModal = document.getElementById('joke-modal');
     const jokeModalText = document.getElementById('joke-modal-text');
     const jokeModalClose = document.getElementById('joke-modal-close');
+    const bodyEl = document.body; // Get the body element
 
     // --- 2. Joke Database ---
     const jokeList = [
@@ -30,6 +31,8 @@ document.addEventListener('DOMContentLoaded', () => {
         activePages.forEach(page => {
             page.classList.remove('is-active');
         });
+        // **SCROLL FIX:** Unlock the body when all pages are closed
+        bodyEl.classList.remove('page-is-open');
     }
 
     // Function to show the joke modal
@@ -57,6 +60,9 @@ document.addEventListener('DOMContentLoaded', () => {
                 closeAllPages(); 
                 // Open the new page
                 targetPage.classList.add('is-active');
+                
+                // **SCROLL FIX:** Lock the body scroll
+                bodyEl.classList.add('page-is-open');
             }
         });
     });
@@ -67,6 +73,9 @@ document.addEventListener('DOMContentLoaded', () => {
             const parentPage = arrow.closest('.page-section');
             if (parentPage) {
                 parentPage.classList.remove('is-active');
+                
+                // **SCROLL FIX:** Unlock the body scroll
+                bodyEl.classList.remove('page-is-open');
             }
         });
     });
@@ -76,14 +85,14 @@ document.addEventListener('DOMContentLoaded', () => {
         if (funModeToggle.checked) {
             // --- Switch to Fun Mode ---
             document.body.classList.add('fun-mode-active');
-            closeAllPages(); // Close any open pro-mode page
+            closeAllPages(); // This will also remove 'page-is-open' class
             proModeGrid.style.display = 'none';
             funModeGrid.style.display = 'block';
             showRandomJoke(); // Show the joke
         } else {
             // --- Switch back to Pro Mode ---
             document.body.classList.remove('fun-mode-active');
-            closeAllPages(); // Close any open fun-mode page
+            closeAllPages(); // This will also remove 'page-is-open' class
             proModeGrid.style.display = 'block';
             funModeGrid.style.display = 'none';
         }
@@ -99,3 +108,4 @@ document.addEventListener('DOMContentLoaded', () => {
     });
 
 });
+
